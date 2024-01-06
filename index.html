@@ -8,11 +8,12 @@
         <meta name="author" content="Parsa Sabaghi">
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js" defer></script>
     </header>
     <body>
             <div id="flex-box1">
             <div id="form-box">
-                <form action="" method="get">
+                <form id="main-form">
                     <fieldset>
                         <legend><h1>Mr. or Ms.</h1></legend>
                         Name <input id="name-field" type="text" name="name" maxlength="255"><br /><br />
@@ -26,12 +27,12 @@
             <div id="flex-box2">
                 <div id="prediction-box">
                     <h1>Prediction</h1>
-                    <p id="result-string"></p><br />
+                    <p id="result-string"></p>
                     <p id="result-percent"></p>
                 </div>
                 <div id="savedAnswers-box">
                     <h1>Saved Answer</h1>
-                    <p id="result-percent"></p><br />
+                    <p id="saved-answer"></p><br />
                     <button id="clear-button" type="button">Clear</button>
                 </div>
             </div>

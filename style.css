@@ -40,5 +40,16 @@ button{
 #savedAnswers-box{
     border-style:dashed;
     border-color: darkgrey;
-    padding-bottom:5px;
+}
+
+#result-percent{
+    height: 10px;
+}
+
+#result-string{
+    height: 10px;
+}
+
+#saved-answer{
+    height: 10px;
 }
