@@ -11,17 +11,28 @@
     </header>
     <body>
         <div id="flex-box1">
-            <div id="flex-box2">
+            <div id="form-box">
                 <form action="" method="get">
-                    
+                    <fieldset>
+                        <legend><h1>Mr. or Ms.</h1></legend>
+                        Name <input id="name-field" type="text" name="name"><br />
+                        <input class="radio-button" type="radio" name="sex" value="male"> Male<br />
+                        <input class="radio-button" type="radio" name="sex" value="female"> Female<br />
+                        <button id="submit-button" type="submit">Submit</button><br />
+                        <button id="save-button" type="button">Save</button>
+                    </fieldset>
                 </form>
             </div>
-            <div id="flex-box3">
+            <div id="flex-box2">
                 <div id="prediction-box">
-
+                    <h1>Prediction</h1>
+                    <p id="result-string"></p><br />
+                    <p id="result-percent"></p>
                 </div>
                 <div id="savedAnswers-box">
-
+                    <h1>Saved Answer</h1>
+                    <p id="result-percent"></p><br />
+                    <button id="clear-button" type="button">Clear</button>
                 </div>
             </div>
         </div>
