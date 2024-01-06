@@ -1,0 +1,44 @@
+body{
+    background-image: url("images.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+#flex-box1{
+    position: absolute; top: 30%; left: 30%;
+    width: 40%;
+    height: 40%;
+    border-style: solid;
+    border-color: black;
+    border-radius: 40px;
+    background-color: aqua;
+    opacity: 0.75;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#flex-box2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+button{
+    margin-top: 2px;
+    border-radius: 4px;
+}
+
+#name-field{
+    margin-left: 3px;
+}
+
+#savedAnswers-box{
+    border-style:dashed;
+    border-color: darkgrey;
+    padding-bottom:5px;
+}
