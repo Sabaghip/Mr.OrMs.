@@ -1,13 +1,18 @@
+/* Added background image to body and avoid repeat and cover all body */
 body{
     background-image: url("images.png");
     background-repeat: no-repeat;
     background-size:cover;
 }
 
+/* Rectangle of contents: added absolute positon to make it stay in center and 
+added border for it and border radious to smooth corners
+and added opacity 
+added padding for better view
+make it flex in row direction so its children would be in a row
+and centered them horizontally with justify-content and vertically with align-items*/
 #flex-box1{
     position: absolute; top: 30%; left: 30%;
-    /* width: 40%;
-    height: 40%; */
     border-style: solid;
     border-color: black;
     border-radius: 40px;
@@ -21,11 +26,9 @@ body{
     align-items: center;
 }
 
-/* #form-box{
-    width: 100%;
-    height: 100%;
-} */
-
+/* right box of contents
+make it flex in column direction so its children would be in a column
+and centered them vertically with justify-content and push them to left horizontally with align-items*/
 #flex-box2{
     display: flex;
     flex-direction: column;
@@ -33,20 +36,24 @@ body{
     align-items: flex-start;
 }
 
+/* Added margin and border to all buttons for better view */
 button{
     margin-top: 2px;
     border-radius: 4px;
 }
 
+/* Added margin to name-field for better view */
 #name-field{
     margin-left: 3px;
 }
 
+/* Added border and color of norder to right bottom box for better view */
 #savedAnswers-box{
     border-style:dashed;
     border-color: darkgrey;
 }
 
+/* Added height to strings so they will take space when thy are "" */
 #result-percent{
     height: 10px;
 }
