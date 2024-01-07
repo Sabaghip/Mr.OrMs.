@@ -1,6 +1,18 @@
+let cookie = document.cookie
+
 let cache = {}
 
+if(cookie.split("-").length > 1){
+    for(i of cookie.split("-")){
+        let temp = i.split(":")
+        cache[temp[0]] = temp[1]
+    }
+}
+
+
 async function checkform(event) {
+    document.getElementById("result-string").innerHTML="wait for answer"
+    document.getElementById("result-percent").innerHTML=""
     event.preventDefault();
     let name = document.getElementById("name-field");
     reg_expr = /^[A-Za-z\s]*$/;
@@ -14,7 +26,7 @@ async function checkform(event) {
         document.getElementById("result-percent").innerHTML=""
         return
     }
-    if(cache[name.value]){
+    if(["male", "female"].includes(cache[name.value])){
         document.getElementById("saved-answer").innerHTML = cache[name.value]
     }
     else{
@@ -31,13 +43,13 @@ async function checkform(event) {
         }
         else{
             document.getElementById("result-string").innerHTML="cant predict gender"
-            document.getElementById("result-percent").innerHTML=""
+            document.getElementById("result-percent").innerHTML="for this name"
         }
     }  
     catch(err){
-        document.getElementById("result-string").innerHTML="cant predict gender"
+        document.getElementById("result-string").innerHTML="connection problem"
         document.getElementById("result-percent").innerHTML="check connection"
-        console.log(err)
+
         return
     }
   }
@@ -47,9 +59,13 @@ async function save(event) {
     let name = document.getElementById("name-field");
     reg_expr = /^[A-Za-z\s]*$/;
     if(!reg_expr.test(name.value)){
+        document.getElementById("result-string").innerHTML="invalid name"
+        document.getElementById("result-percent").innerHTML=""
         return
     }
     if(name.length > 255){
+        document.getElementById("result-string").innerHTML="invalid name"
+        document.getElementById("result-percent").innerHTML=""
         return
     }
     let gender = null;
@@ -61,6 +77,10 @@ async function save(event) {
     }
     if(gender){
         cache[name.value] = gender
+        document.cookie=""
+        for(const [key, value] of Object.entries(cache)){
+            document.cookie = document.cookie + key + ":" + value + "-"
+        }
     }
   }
 
@@ -69,12 +89,20 @@ async function save(event) {
     let name = document.getElementById("name-field");
     reg_expr = /^[A-Za-z\s]*$/;
     if(!reg_expr.test(name.value)){
+        document.getElementById("result-string").innerHTML="invalid name"
+        document.getElementById("result-percent").innerHTML=""
         return
     }
     if(name.length > 255){
+        document.getElementById("result-string").innerHTML="invalid name"
+        document.getElementById("result-percent").innerHTML=""
         return
     }
     cache[name.value]=null
+    document.cookie=""
+    for(const [key, value] of Object.entries(cache)){
+        document.cookie = document.cookie + key + ":" + value + "-"
+    }
     document.getElementById("saved-answer").innerHTML = ""
   }
 document.getElementById("main-form").onsubmit = checkform;
